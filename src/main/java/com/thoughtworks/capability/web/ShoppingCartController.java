@@ -25,5 +25,8 @@ public class ShoppingCartController {
         return shoppingCartService.getShoppingCartItems();
     }
 
-
+    @PostMapping("/payment")
+    public int shoppingCartItemsPayment() {
+        return shoppingCartService.shoppingCartItemsPayment();
+    }
 }

@@ -3,6 +3,7 @@ package com.thoughtworks.capability.web;
 import com.thoughtworks.capability.WebApplicationTest;
 import com.thoughtworks.capability.domain.Commodity;
 import com.thoughtworks.capability.service.ShoppingCartService;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -39,5 +40,18 @@ class ShoppingCartControllerTest extends WebApplicationTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(3));
+    }
+
+    @Test
+    public void testPayment() throws Exception {
+        when(shoppingCartService.shoppingCartItemsPayment()).thenReturn(1
+        );
+
+        mvc.perform(MockMvcRequestBuilders
+                        .post("/shopping-cart/payment")
+                        .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("").value(1));
     }
 }

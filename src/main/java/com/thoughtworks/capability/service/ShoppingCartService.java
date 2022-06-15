@@ -19,4 +19,8 @@ public class ShoppingCartService {
     public List<Commodity> getShoppingCartItems() {
         return shoppingCartRepository.getShoppingCartItems();
     }
+
+    public int shoppingCartItemsPayment() {
+        return 1;
+    }
 }

@@ -19,6 +19,7 @@ public class Commodity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private int count;
     private double price;
     private String status;
 }
